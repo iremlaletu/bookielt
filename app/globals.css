@@ -2,20 +2,126 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@layer base {
+  body {
+    @apply text-slate-600;
   }
 }
 
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+@layer utilities {
+  .heading {
+    @apply uppercase px-6 py-3 font-extrabold sm:text-[54px] sm:leading-[64px] text-[36px] leading-[46px] max-w-5xl text-center my-5;
+  }
+
+  .hero {
+    @apply w-full h-full;
+    background-image:
+      linear-gradient(
+        0deg,
+        transparent 24%,
+        #e1e1e1 25%,
+        #e1e1e1 26%,
+        transparent 27%,
+        transparent 74%,
+        #e1e1e1 75%,
+        #e1e1e1 76%,
+        transparent 77%
+      ),
+      linear-gradient(
+        90deg,
+        transparent 24%,
+        #e1e1e1 25%,
+        #e1e1e1 26%,
+        transparent 27%,
+        transparent 74%,
+        #e1e1e1 75%,
+        #e1e1e1 76%,
+        transparent 77%
+      );
+    background-size: 48px 48px;
+  }
+
+  /* searchform */
+  .search-form {
+    @apply max-w-3xl w-full min-h-[75px] bg-transparent border-b-2 border-slate-500 text-[24px] px-5 flex flex-row items-center transition-all;
+  }
+
+  .search-form:focus-within {
+    @apply border-2 border-slate-500;
+  }
+
+  .search-input {
+    @apply flex-1 font-bold placeholder:font-semibold placeholder:text-slate-500 w-full h-auto outline-none bg-transparent;
+  }
+
+  .search-btn {
+    @apply size-[50px] rounded-full bg-slate-500 flex justify-center items-center !important;
+  }
+
+  /* Review Card */
+  .review-card {
+    @apply border-2 border-black py-6 px-5 rounded-xl shadow-sm transition-all duration-500 hover:shadow-2xl;
+  }
+
+  .review-card_date {
+    @apply font-medium text-[16px] px-4 py-2;
+  }
+
+  .review-card_desc {
+    @apply font-normal text-[16px] line-clamp-3 my-3 break-all;
+  }
+
+  .review-card_img {
+    @apply w-1/2 h-[184px] rounded-[10px] object-cover;
+  }
+
+  .review-card_btn {
+    @apply rounded-full font-medium text-[16px] px-5 py-3 !important;
+  }
+
+  .review-card_skeleton {
+    @apply w-full h-96 rounded-lg bg-zinc-400;
+  }
+
+  /* startupform */
+  .review-form {
+    @apply max-w-7xl mx-auto my-10 space-y-8 px-6;
+  }
+
+  .review-form_label {
+    @apply font-bold text-[18px] uppercase;
+  }
+
+  .review-form_input {
+    @apply border-2 border-slate-400 px-5 py-7 text-[18px] font-semibold rounded-3xl mt-3 !important;
+  }
+
+  .review-form_textarea {
+    @apply border-2 border-slate-400 p-5 text-[18px] font-semibold rounded-3xl mt-3 min-h-48 !important;
+  }
+
+  .review-form_error {
+    @apply text-red-500 mt-2 ml-5;
+  }
+
+  .review-form_editor {
+    @apply mt-3 border-2 border-slate-400 text-[18px] font-semibold  !important;
+  }
+
+  .review-form_btn {
+    @apply border-2 border-slate-400 rounded-full p-5 min-h-[70px] font-bold text-[18px] !important;
+  }
+
+  /* profile */
+  .profile_container {
+    @apply w-full pb-10 pt-20 px-6 max-w-7xl mx-auto lg:flex-row flex-col flex gap-10;
+  }
+
+  .profile_card {
+    @apply w-80 p-5 flex flex-col justify-center items-center  h-fit max-lg:w-full;
+  }
+
+  .review-card_skeleton {
+    @apply w-full h-96 rounded-[22px] bg-zinc-400;
+  }
 }

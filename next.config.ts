@@ -1,7 +1,22 @@
+
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
+    images: {
+      dangerouslyAllowSVG: true,
+        remotePatterns: [
+          {
+            protocol: "https",
+            hostname: "lh3.googleusercontent.com",
+          },
+          
+        ],
+        
+    },
+    experimental: {
+      ppr: "incremental",
+    },
+   
 };
 
 export default nextConfig;
