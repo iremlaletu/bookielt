@@ -17,7 +17,6 @@ const ReviewCard = ({ post }: { post: ReviewTypeCard }) => {
     title,
     _id,
     description,
-    likes,
     bookname,
     writername,
   } = post;
@@ -31,10 +30,6 @@ const ReviewCard = ({ post }: { post: ReviewTypeCard }) => {
           <div className="flex gap-2">
             <EyeIcon className="size-6 text-red-500" />
             <span> {views} </span>
-          </div>
-          <div className="flex gap-2">
-            <HeartIcon className="size-6 text-red-500" />
-            <span> {likes} </span>
           </div>
         </div>
       </div>

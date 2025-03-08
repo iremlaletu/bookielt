@@ -140,7 +140,6 @@ export type Review = {
     [internalGroqTypeReferenceTo]?: "author";
   };
   views?: number;
-  likes?: number;
   description?: string;
   image?: string;
   body?: string;

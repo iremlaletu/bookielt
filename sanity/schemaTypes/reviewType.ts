@@ -41,11 +41,6 @@ export const reviewType = defineType({
     }),
 
     defineField({
-      name: 'likes',
-      type: 'number',
-    }),
-
-    defineField({
       name: 'description',
       type: 'text',
     }),
