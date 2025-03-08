@@ -46,11 +46,6 @@ export const reviewType = defineType({
     }),
 
     defineField({
-      name: 'image',
-      type: 'url',
-    }),
-
-    defineField({
       name: 'body',
       type: 'markdown',
     }),

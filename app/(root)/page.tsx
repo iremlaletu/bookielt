@@ -19,7 +19,7 @@ export default async function Home({
     query: REVIEWS_QUERY,
     params,
   });
-  console.log(posts);
+
   return (
     <>
       <section className="w-full min-h-[550px] hero flex flex-col justify-between items-center py-20 px-3">

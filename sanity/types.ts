@@ -141,7 +141,6 @@ export type Review = {
   };
   views?: number;
   description?: string;
-  image?: string;
   body?: string;
   bookname?: string;
   writername?: string

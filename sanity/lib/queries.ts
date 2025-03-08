@@ -11,7 +11,6 @@ export const REVIEWS_QUERY = defineQuery(`*[_type == "review" && defined(slug.cu
     views,
     bookname,
     writername,
-    image
   }`)
 
   export const REVIEWS_BY_ID_QUERY = defineQuery(`*[_type == "review" && _id == $id][0]{
