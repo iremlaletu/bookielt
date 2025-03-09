@@ -8,6 +8,9 @@ import { Suspense } from "react";
 import { Skeleton } from "@/components/ui/skeleton";
 import View from "@/components/View";
 import Image from "next/image";
+import { auth } from "@/auth";
+import DeleteReview from "@/components/DeleteReview";
+import Link from "next/link";
 
 const md = markdownit();
 
@@ -17,7 +20,13 @@ const Page = async ({ params }: { params: Promise<{ id: string }> }) => {
   const id = (await params).id;
   const post = await client.fetch(REVIEWS_BY_ID_QUERY, { id });
   if (!post) return notFound();
+
   const parsedContent = md.render(post?.body || "");
+
+  // Postun sahibi ile session'daki kullanıcı id'yi kontrol ediyoruz
+  const session = await auth();
+  const isOwner = session?.id === post.author._id;
+
   return (
     <>
       <section className="w-full hero flex justify-center items-center flex-col py-10 px-6 min-h-[230px]">
@@ -32,6 +41,7 @@ const Page = async ({ params }: { params: Promise<{ id: string }> }) => {
           {post.description}
         </p>
       </section>
+
       <section className="px-6 py-10 max-w-7xl mx-auto">
         <div className="space-y-5 mt-10 max-w-4xl mx-auto">
           <div className="flex justify-between items-center gap-5">
@@ -58,6 +68,10 @@ const Page = async ({ params }: { params: Promise<{ id: string }> }) => {
           ) : (
             <p className="no-result">No details provided</p>
           )}
+          <Link href="/" className="ml-auto block w-fit">
+            Back
+          </Link>
+          <div>{isOwner && <DeleteReview id={id} />}</div>
         </div>
 
         <hr className="border-dotted bg-zinc-400 max-w-4xl my-10 mx-auto" />

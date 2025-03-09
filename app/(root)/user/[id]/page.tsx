@@ -4,6 +4,7 @@ import UserReview from "@/components/UserReview";
 import { client } from "@/sanity/lib/client";
 import { AUTHOR_BY_ID_QUERY } from "@/sanity/lib/queries";
 import Image from "next/image";
+import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Suspense } from "react";
 
@@ -14,7 +15,7 @@ const Page = async ({ params }: { params: Promise<{ id: string }> }) => {
   const session = await auth();
   const user = await client.fetch(AUTHOR_BY_ID_QUERY, { id });
   if (!user) return notFound();
-  console.log(user);
+
   return (
     <>
       <section className="profile_container">
@@ -38,6 +39,9 @@ const Page = async ({ params }: { params: Promise<{ id: string }> }) => {
               <UserReview id={id} />
             </Suspense>
           </ul>
+          <Link href="/" className="text-right">
+            Back
+          </Link>
         </div>
       </section>
     </>

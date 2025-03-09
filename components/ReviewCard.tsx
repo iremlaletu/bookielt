@@ -1,5 +1,5 @@
 import { cn, formatDate } from "@/lib/utils";
-import { EyeIcon, HeartIcon } from "lucide-react";
+import { EyeIcon } from "lucide-react";
 
 import Link from "next/link";
 import { Button } from "./ui/button";
@@ -62,7 +62,7 @@ const ReviewCard = ({ post }: { post: ReviewTypeCard }) => {
       <div className="flex-grow"></div>
       <div className="mt-auto self-end gap-3">
         <Button className="review-card_btn" asChild>
-          <Link href={`/review/${_id}`}> Details </Link>
+          <Link href={`/review/${_id}`}> Read </Link>
         </Button>
       </div>
     </li>
