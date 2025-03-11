@@ -4,8 +4,6 @@ import { SanityLive, sanityFetch } from "@/sanity/lib/live";
 import { REVIEWS_QUERY } from "@/sanity/lib/queries";
 import { auth } from "@/auth";
 
-export const experimental_ppr = true;
-
 export default async function Home({
   searchParams,
 }: {
