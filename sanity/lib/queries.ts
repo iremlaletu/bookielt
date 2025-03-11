@@ -7,7 +7,6 @@ export const REVIEWS_QUERY = defineQuery(`*[_type == "review" && defined(slug.cu
     _createdAt,
     author -> {_id, name, image},
     description,
-    likes,
     views,
     bookname,
     writername,
@@ -21,7 +20,6 @@ export const REVIEWS_QUERY = defineQuery(`*[_type == "review" && defined(slug.cu
     description,
     _createdAt, 
     body, 
-    likes,
     bookname,
     writername,
     views

@@ -4,6 +4,8 @@ import { SanityLive, sanityFetch } from "@/sanity/lib/live";
 import { REVIEWS_QUERY } from "@/sanity/lib/queries";
 import { auth } from "@/auth";
 
+export const revalidate = 0;
+
 export default async function Home({
   searchParams,
 }: {
@@ -25,7 +27,7 @@ export default async function Home({
       <section className="w-full min-h-[550px] hero flex flex-col justify-between items-center py-20 px-3">
         <h1 className="heading">Discover. Share. Read. 📚</h1>
         <p className="font-medium text-[20px] max-w-3xl break-words">
-          Write reviews, find recommendations, and connect.{" "}
+          Write reviews, find recommendations..{" "}
         </p>
 
         <div className="w-full flex justify-center mt-auto">
