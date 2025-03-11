@@ -1,7 +1,6 @@
 import { formatDate } from "@/lib/utils";
 import { client } from "@/sanity/lib/client";
 import { REVIEWS_BY_ID_QUERY } from "@/sanity/lib/queries";
-
 import { notFound } from "next/navigation";
 import markdownit from "markdown-it";
 import { Suspense } from "react";
