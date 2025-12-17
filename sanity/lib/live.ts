@@ -1,16 +1,24 @@
-import "server-only"
-// Querying with "sanityFetch" will keep content automatically updated
-// Before using it, import and render "<SanityLive />" in your layout, see
-// https://github.com/sanity-io/next-sanity#live-content-api for more information.
-import { defineLive } from "next-sanity";
+import "server-only";
 import { client } from "@/sanity/lib/client";
-import { token } from "../env";
 
-export const { sanityFetch, SanityLive } = defineLive({ 
-  client,
-  serverToken: token,
-  browserToken: token,
-  fetchOptions: {
-    revalidate: 0
-  },
-});
+type SanityFetchOptions<T> = {
+  query: string;
+  params?: Record<string, unknown>;
+};
+
+// Simple wrapper around the Sanity client so we can keep the same API
+// that the rest of the app expects: `const { data } = await sanityFetch(...)`.
+export async function sanityFetch<T>({
+  query,
+  params,
+}: SanityFetchOptions<T>): Promise<{ data: T }> {
+  const data = await client.fetch<T>(
+    query,
+    params ?? {}
+  );
+  return { data };
+}
+
+// Placeholder component so existing `<SanityLive />` usages keep working.
+// The real "live" mode from `next-sanity` isn't used here.
+export const SanityLive = () => null;

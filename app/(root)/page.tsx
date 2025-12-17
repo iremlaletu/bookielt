@@ -15,7 +15,7 @@ export default async function Home({
   const session = await auth();
 
   // real data from sanity
-  const { data: posts } = await sanityFetch({
+  const { data: posts } = await sanityFetch<ReviewTypeCard[]>({
     query: REVIEWS_QUERY,
     params,
   });
