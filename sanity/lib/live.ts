@@ -1,6 +1,7 @@
 import "server-only";
 import { client } from "@/sanity/lib/client";
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 type SanityFetchOptions<T> = {
   query: string;
   params?: Record<string, unknown>;
